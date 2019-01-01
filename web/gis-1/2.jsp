@@ -5,7 +5,7 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Intro to SceneView - Create a 3D map</title>
     <style>
-        html, body, #viewDiv {
+        html, body, #viewDiv {2
             padding: 0;
             margin: 0;
             height: 100%;

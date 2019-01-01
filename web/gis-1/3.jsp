@@ -19,7 +19,7 @@
             "esri/Map",
             "esri/views/MapView",
             "esri/Graphic"
-        ], function(
+        ], function (
             Map, MapView, Graphic
         ) {
 
@@ -55,10 +55,40 @@
                 }
             };
 
+            var template = {  // autocasts as new PopupTemplate()
+                title: "Marriage in NY, Zip Code: {ZIP}",
+                content: [{
+                    type: "fields",
+                    fieldInfos: [{
+                        fieldName: "MARRIEDRATE",
+                        label: "Married %",
+                        visible: true
+                    }, {
+                        fieldName: "MARRIED_CY",
+                        label: "People Married",
+                        visible: true
+                    }, {
+                        fieldName: "NEVMARR_CY",
+                        label: "People that Never Married",
+                        visible: true
+                    }, {
+                        fieldName: "DIVORCD_CY",
+                        label: "People Divorced",
+                        visible: true
+                    }]
+                }]
+            };
+
             // Create a graphic and add the geometry and symbol to it
             var pointGraphic = new Graphic({
                 geometry: point,
-                symbol: markerSymbol
+                symbol: markerSymbol,
+                attributes: {
+                    "name": "Spruce",
+                    "family": "Pinaceae",
+                    "count": 126
+                },
+                popupTemplate:template
             });
 
             /****************************
